@@ -11,3 +11,5 @@ The file 3-listfiles is a script that displays current directory contents in a l
 The file 4-listmorefiles is a script that displays current directory contents, including hidden files in a long format.
 
 The file 5-listfilesdigitonly is a script that displays current directory contents with user and group ids displayed numerically.
+
+The file 6-firstdirectory is a script that creates a directory in the tmp directory.
