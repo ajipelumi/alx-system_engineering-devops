@@ -15,3 +15,5 @@ The file 5-listfilesdigitonly is a script that displays current directory conten
 The file 6-firstdirectory is a script that creates a directory in the tmp directory.
 
 The file 7-movethatfile is a script that moves betty to a new directory.
+
+The file 8-firstdelete is a script that deleted betty.
