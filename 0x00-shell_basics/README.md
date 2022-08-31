@@ -13,3 +13,5 @@ The file 4-listmorefiles is a script that displays current directory contents, i
 The file 5-listfilesdigitonly is a script that displays current directory contents with user and group ids displayed numerically.
 
 The file 6-firstdirectory is a script that creates a directory in the tmp directory.
+
+The file 7-movethatfile is a script that moves betty to a new directory.
