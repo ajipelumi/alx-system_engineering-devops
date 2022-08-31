@@ -21,3 +21,5 @@ The file 8-firstdelete is a script that deleted betty.
 The file 9-firstdirdeletion is a script that deletes my_first_directory.
 
 The file 10-back is a script that changes the working directory to the previous one.
+
+The file 11-lists is a script that list files of a set of directories.
