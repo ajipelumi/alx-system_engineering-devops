@@ -19,3 +19,5 @@ The file 7-movethatfile is a script that moves betty to a new directory.
 The file 8-firstdelete is a script that deleted betty.
 
 The file 9-firstdirdeletion is a script that deletes my_first_directory.
+
+The file 10-back is a script that changes the working directory to the previous one.
