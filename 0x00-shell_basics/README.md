@@ -17,3 +17,5 @@ The file 6-firstdirectory is a script that creates a directory in the tmp direct
 The file 7-movethatfile is a script that moves betty to a new directory.
 
 The file 8-firstdelete is a script that deleted betty.
+
+The file 9-firstdirdeletion is a script that deletes my_first_directory.
