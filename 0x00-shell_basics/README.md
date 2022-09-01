@@ -37,3 +37,5 @@ The file 101-clean_emacs is a script that cleans emacs.
 The file 102-tree is a script that creates multiple directories and sub_directories.
 
 The file 103-commas is a script that lists a series of commas.
+
+The file school.mgc is a magic file.
