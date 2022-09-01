@@ -27,3 +27,5 @@ The file 11-lists is a script that list files of a set of directories.
 The file 12-file_type is a script that prints the type of a file.
 
 The file 13-symbolic_link is a script that creates a symbolic link.
+
+The file 14-copy_html is a script that copies html files in pwd to the parent directory.
