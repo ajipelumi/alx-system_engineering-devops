@@ -33,3 +33,5 @@ The file 14-copy_html is a script that copies html files in pwd to the parent di
 The file 100-lets_move is a script that moves files beginning with an uppercase letter.
 
 The file 101-clean_emacs is a script that cleans emacs.
+
+The file 102-tree is a script that creates multiple directories and sub_directories.
