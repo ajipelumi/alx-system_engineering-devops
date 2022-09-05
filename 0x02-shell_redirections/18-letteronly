@@ -1,2 +1,2 @@
 #!/bin/bash
-grep [[:alpha]] /etc/ssh/sshd_config
+grep --ignore-case "^[a-z]" /etc/ssh/sshd_config
