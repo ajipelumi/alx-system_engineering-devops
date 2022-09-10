@@ -46,4 +46,10 @@ The file 21-reverse is a script that reverse its input.
 
 The file 22-users_and_homes is a script that displays all users and their home directories, sorted by users.
 
+The file 100-empty_casks is a script that finds all empty files and directories in the current directory and all sub-directories.
 
+The file 101-gifs is a script that lists all the files with a .gif extension in the current directory and all its sub-directories.
+
+The file 102-acrostic is a script that decodes acrostics that use the first letter of each line.
+
+The file 103-the_biggest_fan is a script that parses web servers logs in TSV format as input and displays the 11 hosts or IP addresses which did the most requests.
