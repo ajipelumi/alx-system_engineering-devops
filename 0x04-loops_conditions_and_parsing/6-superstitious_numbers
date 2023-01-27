@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# This script is displays:
+# 4 and then "bad luck from China" for the 4th loop iteration
+# 9 and then "bad luck from Japan" for the 9th loop iteration
+# 17 and then "bad luck from Italy" for the 17th loop iteration
+
+i=1
+while [[ $i -le 20 ]]; do
+	case $i in
+		# for the 4th iteration
+		4)
+			echo "$i"
+			echo "bad luck from China"
+		;;
+
+		# for the 9th iteration
+		9)
+			echo "$i"
+			echo "bad luck from Japan"
+		;;
+
+		# for the 17th iteration
+		17)
+			echo "$i"
+			echo "bad luck from Italy"
+		;;
+
+		# for other iterations
+		*)
+			echo "$i"
+		;;
+	esac
+	((i++))
+done
