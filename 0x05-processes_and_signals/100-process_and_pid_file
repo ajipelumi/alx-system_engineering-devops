@@ -15,7 +15,7 @@ echo $$ > $file
 trap 'rm -f $file; exit' SIGQUIT SIGTERM
 
 # trap call to catch SIGTERM signal
-trap "echo 'I hate the kill command'" SIGTERM
+trap "echo 'I hate the kill command'; exit" SIGTERM
 
 # trap call to catch SIGINT signal
 trap "echo 'Y U no love me?!'" SIGINT
