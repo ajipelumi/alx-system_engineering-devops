@@ -17,11 +17,11 @@ trap "echo 'I hate the kill command'" SIGTERM
 # trap call to catch SIGINT signal
 trap "echo 'Y U no love me?!'" SIGINT
 
+# trap call to catch SIGQUIT or SIGTERM signal
+trap 'rm -f /var/run/myscript.pid; exit' SIGQUIT SIGTERM
+
 while true; do
 	text="To infinity and beyond"
 	echo "$text"
 	sleep 2
 done
-
-# trap call to catch SIGQUIT or SIGTERM signal
-trap 'rm -f "$file"; exit' - SIGQUIT SIGTERM
