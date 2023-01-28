@@ -24,4 +24,4 @@ while true; do
 done
 
 # trap call to catch SIGQUIT or SIGTERM signal
-trap 'rm -f $file; exit' SIGQUIT SIGTERM
+trap 'rm -f "$file"; exit' - SIGQUIT SIGTERM
