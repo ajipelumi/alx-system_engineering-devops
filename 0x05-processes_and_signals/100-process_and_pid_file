@@ -14,7 +14,7 @@ trap "echo 'I hate the kill command' && rm '/var/run/myscript.pid'" SIGTERM
 # trap call to catch SIGINT signal
 trap "echo 'Y U no love me?!'" SIGINT
 
-# trap call to catch SIGQUIT or SIGTERM signal
+# trap call to catch SIGQUIT signal
 trap "rm '/var/run/myscript.pid'; exit" SIGQUIT
 
 while true; do
