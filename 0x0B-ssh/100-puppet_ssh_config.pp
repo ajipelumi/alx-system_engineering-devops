@@ -1,7 +1,11 @@
 # This manifest makes changes to our configuration file.
 
-$config_str = "PasswordAuthentication no\nIdentityFile ~/.ssh/school\n"
+file_line { 'Turn off passwd auth':
+  path => '~/.ssh/config',
+  line => 'PasswordAuthentication no',
+}
 
-file { '~/.ssh/config':
-  content => $config_str,
+file_line { 'Declare identity file':
+  path => '~/.ssh/config',
+  line => 'IdentityFile ~/.ssh/school',
 }
