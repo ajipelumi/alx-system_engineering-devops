@@ -1,9 +1,3 @@
 #!/usr/bin/env bash
 # Connects to our server using the private key
-
-server='52.23.245.131'
-user='ubuntu'
-identity_file='~/.ssh/school'
-
-# Establish connection
-ssh -q -i $identity_file $user@$server
+ssh -i ~/.ssh/school ubuntu@52.23.245.131
