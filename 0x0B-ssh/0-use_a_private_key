@@ -6,4 +6,4 @@ user='ubuntu'
 identity_file='~/.ssh/school'
 
 # Establish connection
-ssh -i $identity_file $user@$server
+ssh -q -i $identity_file $user@$server
