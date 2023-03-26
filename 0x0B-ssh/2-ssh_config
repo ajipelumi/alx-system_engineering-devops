@@ -1,0 +1,9 @@
+# Apply configuration to all host
+Host *
+    PasswordAuthentication no
+
+# Apply configuration to alxserver
+Host alxserver
+    Hostname 52.23.245.131
+    User ubuntu
+    IdentityFile ~/.ssh/school
