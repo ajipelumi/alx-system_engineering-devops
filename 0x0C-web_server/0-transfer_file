@@ -19,4 +19,4 @@ user=$3
 # Path to SSH private key that scp will use
 ssh_key=$4
 
-scp -T -i "$ssh_key" "$file" "$user"@"$ip_address":"~/"
+scp -o StrictHostKeyChecking=no -i "$ssh_key" "$file" "$user"@"$ip_address":"~/"
