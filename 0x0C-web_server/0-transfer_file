@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# The script transfers a file from our client to a server.
+
+if [[ $# -lt 3 ]];
+then
+	echo 'Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY'
+	exit
+fi
+
+# File to be copied
+file=$1
+
+# IP of server we want to transfer file to
+ip_address=$2
+
+# Username scp will connect with
+user=$3
+
+# Path to SSH private key that scp will use
+ssh_key=$4
+
+scp -T -i "$ssh_key" "$file" "$user"@"$ip_address":"~/"
