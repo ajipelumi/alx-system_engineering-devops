@@ -2,10 +2,13 @@
 # The script configures a new Ubuntu machine to install Nginx.
 
 # Update system repo
-apt update
+apt-get update
 
 # Install Nginx
-apt install nginx -y
+apt-get install nginx -y
+
+# Open port 80 for listening
+ufw allow 'Nginx HTTP'
 
 # HTML constains string
 echo 'Hello World!' > /var/www/html/index.html
