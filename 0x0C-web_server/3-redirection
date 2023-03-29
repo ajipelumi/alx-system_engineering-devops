@@ -2,16 +2,13 @@
 # The script configures a new Ubuntu machine to install Nginx.
 
 # Update system repo
-sudo apt update
+apt update
 
 # Install Nginx
-sudo apt install nginx -y
-
-# Open port 80 for listening
-sudo ufw allow 'Nginx HTTP'
+apt install nginx -y
 
 # HTML constains string
-echo 'Hello World!' | sudo tee /var/www/html/index.html
+echo 'Hello World!' > /var/www/html/index.html
 
 # Configure server
 SERVER_CONFIG="\
@@ -31,4 +28,4 @@ SERVER_CONFIG="\
 bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
 
 # Restart Nginx
-sudo /etc/init.d/nginx start
+service nginx restart
