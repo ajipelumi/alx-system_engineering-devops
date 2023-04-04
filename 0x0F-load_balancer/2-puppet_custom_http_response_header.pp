@@ -1,20 +1,18 @@
 # This manifest installs and configure an Nginx server.
 
-# Install Nginx
+include stdlib
+
 package { 'nginx':
-  ensure   => 'installed',
+  ensure => 'installed',
 }
 
-# Add header
 file_line { 'add_header':
-  path    => '/etc/nginx/sites-enabled/default',
-  line    => "    add_header X-Served-By \"$hostname\";",
-  match   => '^    listen 80 default_server;$',
-  require => Package['nginx'],
+  ensure => 'present',
+  path   => '/etc/nginx/nginx.conf',
+  line   => "\tadd_header X-Served-By ${hostname};",
+  after  => 'include \/etc\/nginx\/sites-enabled\/\*;',
 }
 
-# Start server
-service { 'nginx':
-  ensure => 'running',
-  enable => 'true',
+exec { 'restart-nginx':
+  command => '/etc/init.d/nginx restart',
 }
