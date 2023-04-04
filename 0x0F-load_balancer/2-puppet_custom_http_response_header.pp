@@ -1,18 +1,35 @@
 # This manifest installs and configure an Nginx server.
 
-include stdlib
-
+# Install Nginx
 package { 'nginx':
-  ensure => 'installed',
+  ensure   => 'installed',
+  provider => 'apt',
 }
 
-file_line { 'add_header':
-  ensure => 'present',
-  path   => '/etc/nginx/nginx.conf',
-  line   => "\tadd_header X-Served-By ${hostname};",
-  after  => 'include \/etc\/nginx\/sites-enabled\/\*;',
+# Configure html file
+file { '/var/www/html/index.html':
+  content => 'Hello World!\n',
 }
 
-exec { 'restart-nginx':
-  command => '/etc/init.d/nginx restart',
+# Configure server
+file { '/etc/nginx/sites-enabled/default':
+  content => '
+	server {
+		listen 80 default_server;
+		listen [::]:80 default_server;
+		root /var/www/html;
+		index index.html index.htm index.nginx-debian.html;
+		server_name _;
+		location / {
+				add_header X-Served-By $hostname;
+				try_files $uri $uri/ =404;
+		}
+		rewrite ^/redirect_me/ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
+	}',
+}
+
+# Start server
+service { 'nginx':
+  ensure => 'running',
+  enable => 'true',
 }
