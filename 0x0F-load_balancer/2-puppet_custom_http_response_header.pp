@@ -1,6 +1,7 @@
 # This manifest installs and configure an Nginx server.
 
-include stdlib
+# Install stdlib for file_line
+class { 'stdlib': }
 
 # Install Nginx
 package { 'nginx':
@@ -10,9 +11,10 @@ package { 'nginx':
 
 # Add header
 file_line { 'add_header':
-  path  => '/etc/nginx/sites-enabled/default',
-  line  => "\tadd_header X-Served-By ${hostname};",
-  after => '^	listen 80 default_server;$',
+  path    => '/etc/nginx/sites-enabled/default',
+  line    => "\tadd_header X-Served-By ${hostname};",
+  after   => '^	listen 80 default_server;$',
+  require => Class['stdlib'],
 }
 
 # Start server
