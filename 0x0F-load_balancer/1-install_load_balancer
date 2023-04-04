@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# This script installs and configures HAproxy on our lb-01 server.
+
+# Update system repo
+apt update
+
+# Install HAproxy
+apt install haproxy -y
+
+# Configure HAproxy
+SERVER_CONFIG="\
+
+frontend http-in
+	bind *:80
+	default_backend servers
+
+backend servers
+	balance roundrobin
+	server 141631-web-01 52.23.245.131:80 check
+	server 141631-web-02 18.215.160.38:80 check"
+
+# Place configuration file in HAproxy file
+bash -c "echo -e '$SERVER_CONFIG' >> /etc/haproxy/haproxy.cfg"
+
+# Start HAproxy
+service haproxy start
