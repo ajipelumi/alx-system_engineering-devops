@@ -3,7 +3,6 @@
 # Install Nginx
 package { 'nginx':
   ensure   => 'installed',
-  provider => 'apt',
 }
 
 # Add header
