@@ -6,26 +6,11 @@ package { 'nginx':
   provider => 'apt',
 }
 
-# Configure html file
-file { '/var/www/html/index.html':
-  content => 'Hello World!\n',
-}
-
-# Configure server
-file { '/etc/nginx/sites-enabled/default':
-  content => '
-	server {
-		listen 80 default_server;
-		listen [::]:80 default_server;
-		root /var/www/html;
-		index index.html index.htm index.nginx-debian.html;
-		server_name _;
-		location / {
-				add_header X-Served-By \$hostname;
-				try_files \$uri \$uri/ =404;
-		}
-		rewrite ^/redirect_me/ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
-	}',
+# Add header
+file_line { 'add_header':
+  path  => '/etc/nginx/sites-enabled/default',
+  line  => '	add_header X-Served-By \$hostname;',
+  match => '^	listen 80 default_server;$',
 }
 
 # Start server
