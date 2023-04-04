@@ -1,5 +1,7 @@
 # This manifest installs and configure an Nginx server.
 
+include stdlib
+
 # Install Nginx
 package { 'nginx':
   ensure   => 'installed',
