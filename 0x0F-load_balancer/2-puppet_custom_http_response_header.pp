@@ -8,7 +8,7 @@ package { 'nginx':
 # Add header
 file_line { 'add_header':
   path    => '/etc/nginx/sites-enabled/default',
-  line    => "\tadd_header X-Served-By ${hostname};",
+  line    => "    add_header X-Served-By \"$hostname\";",
   match   => '^    listen 80 default_server;$',
   require => Package['nginx'],
 }
