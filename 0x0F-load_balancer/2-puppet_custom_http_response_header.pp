@@ -3,13 +3,14 @@
 # Install Nginx
 package { 'nginx':
   ensure   => 'installed',
+  provider => 'apt',
 }
 
 # Add header
 file_line { 'add_header':
   path  => '/etc/nginx/sites-enabled/default',
   line  => "	add_header X-Served-By ${hostname};",
-  match => '^	listen 80 default_server;$',
+  after => '^	listen 80 default_server;$',
 }
 
 # Start server
