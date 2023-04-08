@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# This script displays information about subdomains.
+
+function dns {
+	subdomain=$1
+	domain=$2
+
+	# Get the record type
+	record=$(dig "$subdomain.$domain" | awk "/^$subdomain.$domain/ {print \$4}")
+
+	# Get the ip address that the domain points to
+	ip=$(dig "$subdomain.$domain" | awk "/^$subdomain.$domain/ {print \$5}")
+
+	# Write format we want displayed to stdout
+	format="The subdomain $subdomain is a $record record and points to $ip"
+	echo "$format"
+}
+
+
+if [[ $# -eq 1 ]]; # If only domain parameter is passed
+then
+	dns "www" "$1"
+	dns "lb-01" "$1"
+	dns "web-01" "$1"
+	dns "web-02" "$1"
+elif [[ $# -eq 2 ]]; # If domain and subdomain are passed
+then
+	dns "$2" "$1"
+fi
