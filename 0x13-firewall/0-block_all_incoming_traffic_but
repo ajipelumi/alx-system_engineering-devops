@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# This script installs ufw and setups a few rules.
+
+# Update repo
+apt update
+
+# Install ufw
+apt install -y ufw
+
+# Allow ports
+ufw allow 'OpenSSH'
+ufw allow 'Nginx Full'
+
+# Enable firewall
+ufw enable
