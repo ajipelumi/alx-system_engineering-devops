@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# This script runs Nginx as the user nginx
+
+# Update repo
+apt update
+
+# Install Nginx
+apt install -y nginx
+
+# Change user
+sed -i 's/^user .*/user nginx;/' /etc/nginx/nginx.conf
+
+# Listen on port 8080
+sed -i 's/^listen .*/listen 8080 default_server;/g' /etc/nginx/sites-available/default
+
+# Restart nginx
+service nginx restart
