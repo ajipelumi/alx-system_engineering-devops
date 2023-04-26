@@ -27,11 +27,11 @@ if __name__ == '__main__':
                 completed_list.append(todo)
 
     # Print Employee name as well as completed and total tasks
-    print('Employee {} is done with tasks({}/{})'.format(
+    print('Employee {} is done with tasks({}/{}):'.format(
                   user_response.get('name'),
                   completed,
                   total))
 
     # Print list of completed tasks
     for item in completed_list:
-        print('\t{}'.format(item.get("title")))
+        print('\t {}'.format(item.get("title")))
