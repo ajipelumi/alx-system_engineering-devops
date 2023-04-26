@@ -9,8 +9,9 @@ import sys
 
 if __name__ == '__main__':
     employee_id = int(sys.argv[1])
-    user_url = f'https://jsonplaceholder.typicode.com/users/{employee_id}'
-    todo_url = f'https://jsonplaceholder.typicode.com/todos'
+    user_url = 'https://jsonplaceholder.typicode.com/users/{}'.format(
+                employee_id)
+    todo_url = 'https://jsonplaceholder.typicode.com/todos'
     user_response = requests.get(user_url).json()
     todo_response = requests.get(todo_url).json()
     total = 0
