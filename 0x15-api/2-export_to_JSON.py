@@ -2,6 +2,7 @@
 """
 Exports data in the JSON format.
 """
+import json
 import requests
 import sys
 
@@ -14,20 +15,17 @@ if __name__ == '__main__':
     user_response = requests.get(user_url).json()
     todo_response = requests.get(todo_url).json()
     filename = '{}.json'.format(employee_id)
-    todo_str = '{{ "{}": ['.format(employee_id)
+    todo_dict = {employee_id: []}
 
     # Format data
-    for idx, todo in enumerate(todo_response):
+    for todo in todo_response:
         if todo.get("userId") == employee_id:
-            todo_str += '{{"task": "{}", "completed": {}, "username": "{}"}}, '\
-                .format(todo.get("title"),
-                        todo.get("completed"),
-                        user_response.get("username"))
-
-    todo_str = todo_str[:-2]  # Remove the trailing comma and space
-    todo_str += "]}"
+            todo_dict[employee_id].append({
+                "task": todo.get("title"),
+                "completed": todo.get("completed"),
+                "username": user_response.get("username")})
 
     # Export data into file
     with open(filename, 'w') as f:
-        # Write string into file
-        f.write(todo_str)
+        # Dump data into file
+        json.dump(todo_dict, f)
