@@ -1,13 +1,11 @@
 #!/usr/bin/python3
-"""
-This script returns information about an employee TODO list progress.
+""" This script returns information about an employee TODO list progress.
 """
 import requests
 import sys
 
 
 if __name__ == "__main__":
-    """ Execute code when run directly. """
     employee_id = int(sys.argv[1])
     user_url = f'https://jsonplaceholder.typicode.com/users/{employee_id}'
     todo_url = f'https://jsonplaceholder.typicode.com/todos'
