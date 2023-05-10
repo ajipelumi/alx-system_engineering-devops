@@ -1,0 +1,5 @@
+# Ignore main files
+*main.py
+
+# Ignore pycache files
+__pycache__/*
