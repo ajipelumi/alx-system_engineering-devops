@@ -6,6 +6,3 @@ pid=$(pgrep -f gunicorn)
 
 # Use HUP option with kill to initiate graceful reload
 kill -HUP "$pid"
-
-# Restart ginicorn
-gunicorn --bind :5003 --workers 3 web_dynamic.2-hbnb:app
