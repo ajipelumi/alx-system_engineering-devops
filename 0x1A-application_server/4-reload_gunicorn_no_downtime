@@ -6,3 +6,6 @@ pid=$(cat /home/ubuntu/.local/bin/gunicorn.pid)
 
 # Use HUP option with kill to initiate graceful reload
 kill -HUP "$pid"
+
+# Restart ginicorn
+/home/ubuntu/.local/bin/gunicorn --bind :5003 --workers 3 --pid /home/ubuntu/.local/bin/gunicorn.pid web_dynamic.2-hbnb:app
