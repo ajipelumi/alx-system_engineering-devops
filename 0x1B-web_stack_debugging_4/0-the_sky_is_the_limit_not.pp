@@ -8,5 +8,6 @@ exec { 'Increase Limit':
 
 # Restart Nginx
 exec { 'Restart Nginx':
-    command => 'service nginx restart'
+    command => 'service nginx restart',
+    path    => '/usr/sbin:/sbin'
 }
