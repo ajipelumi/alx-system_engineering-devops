@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# This script tells the master Gunicorn renew all the workers gracefully.
+# Search for Gunicorn process by name
+pid=$(pgrep -f gunicorn)
+# Use HUP option with kill to initiate graceful reload
+kill -HUP "$pid"
